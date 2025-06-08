@@ -1,71 +1,147 @@
-body{
-  background-color: #f3b500;
-  color: white;
+body {
+    background-color: #f3b500;
+    color: white;
+    /* Ensure no default margins/padding from browser */
+    margin: 0;
+    padding: 0;
+    /* Smooth scrolling if content goes off-screen */
+    scroll-behavior: smooth;
 }
 
-.div_size{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+/* Use min-height 100vh for full viewport height without fixed position */
+.div_size {
+    min-height: 100vh; /* Takes at least full viewport height */
+    display: flex;
+    flex-direction: column;
+    /* Remove fixed position if it's causing issues */
+    /* position: fixed; */
+    /* top: 0; */
+    /* left: 0; */
+    /* width: 100%; */
+    /* height: 100%; */ /* Remove if using min-height */
 }
 
-.div_title_page{
-  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 90vh;
-  
-}
-.center-text-h1{
-  text-align: center;
-  font-size: 80px;
-  -webkit-text-stroke-width: 2px; /* Thickness of the outline */
-  -webkit-text-stroke-color: black; /* Color of the outline */
+.div_title_page {
+    /* Use flexbox for centering content within the available space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Use viewport height units, or simply let content define height */
+    min-height: 90vh; /* Minimum height, can expand with content */
+    padding: 20px; /* Add some general padding */
+    box-sizing: border-box; /* Include padding in element's total width/height */
 }
 
-.vibe_tap_girlboss{
-  color: #ff1d1d;
-  padding-bottom: 40px;
-  
+.center-text-h1 {
+    text-align: center;
+    /* Use 'vw' (viewport width) for font sizes so they scale with screen size */
+    /* You'll need to test these values to find what looks good on different screens */
+    font-size: 8vw; /* 8% of viewport width */
+    min-font-size: 40px; /* Optional: set a minimum size */
+    max-font-size: 80px; /* Optional: set a maximum size */
+
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+    /* Add word break for long words on small screens */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
-.questions-h1{
-   
-  padding-left: 40px;
- 
-  color: black;
-  font-size: 100px;
-   
+.vibe_tap_girlboss {
+    color: #ff1d1d;
+    padding-bottom: 40px;
 }
 
-.div_question_space{
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
- 
-   
-  
-  
-  left: 100px;
-  right: 100px;
-   
-  height: 70%;
- 
-  text-align: center;
-   
-  background-color: white;
- 
+.questions-h1 {
+    color: black;
+    /* Use 'vw' for font sizes as well */
+    font-size: 9vw; /* 9% of viewport width */
+    min-font-size: 40px;
+    max-font-size: 100px;
+    /* Use percentage or 'vw' for padding so it scales */
+    padding-left: 5vw; /* 5% of viewport width */
+    padding-right: 5vw;
+    text-align: center; /* Center text if it wraps */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
 }
 
-.button{
-  border: 2px solid black;
-  margin-bottom: 15px;
-  font-size: 30px;
- 
+.div_question_space {
+    /* Remove fixed position and left/right fixed values */
+    /* position: fixed; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    /* Use percentage for width, and auto margins to center horizontally */
+    width: 90%; /* Take 90% of parent width */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px; /* Add some padding inside the box */
+    box-sizing: border-box; /* Padding is included in the 90% width */
+
+    /* Adjust height as needed, could be min-height or let content define */
+    min-height: 70%; /* Minimum height, allows content to expand */
+    
+    text-align: center;
+    background-color: white;
+
+    /* Add some margin/spacing to prevent it from sticking to edges of viewport if not fixed */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.button {
+    border: 2px solid black;
+    margin-bottom: 15px;
+    /* Use relative font size for buttons too */
+    font-size: 5vw; /* Example, adjust as needed */
+    min-font-size: 20px;
+    max-font-size: 30px;
+    padding: 10px 20px; /* Add some padding for better click area */
+    width: 80%; /* Make buttons take up a percentage of space */
+    max-width: 300px; /* Set a max width to prevent them from getting too wide on desktop */
+}
+
+/* --- Media Queries for Fine-Tuning --- */
+
+/* Apply styles specifically for screens that are 768px wide or smaller (typical tablet/mobile) */
+@media (max-width: 768px) {
+    .center-text-h1 {
+        font-size: 10vw; /* Make main title a bit bigger on smaller screens */
+        -webkit-text-stroke-width: 1px; /* Thinner stroke on small screens */
+    }
+
+    .questions-h1 {
+        font-size: 8vw; /* Adjust question font size for mobile */
+        padding-left: 3vw;
+        padding-right: 3vw;
+    }
+
+    .div_question_space {
+        width: 95%; /* Make it wider on very small screens */
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        min-height: unset; /* Remove min-height to allow content to define height fully */
+    }
+
+    .button {
+        font-size: 20px; /* Fixed smaller font size for mobile buttons */
+        width: 90%;
+        padding: 8px 15px;
+    }
+}
+
+/* You can add more media queries for specific breakpoints (e.g., for very small phones) */
+@media (max-width: 480px) {
+    .center-text-h1 {
+        font-size: 12vw;
+    }
+    .questions-h1 {
+        font-size: 9vw;
+    }
 }
