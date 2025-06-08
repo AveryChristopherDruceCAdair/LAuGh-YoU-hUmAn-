@@ -1,6 +1,6 @@
  import React, { useState } from 'react';
 import './App.css'; 
-//All pictures are from the pexels website. I added text to turn them into memes
+//All pictures are from the pexels website. I added text and drawings to turn them into memes.
 import raccoonImage from './assets/raccoon.jfif';  
 import duck from './assets/duck.jpg'; 
 import serotonin from './assets/serotonin.jpg'
@@ -14,10 +14,12 @@ import frog from './assets/frog.jpg'
 import toaster from './assets/toaster.jpg'
 import pillows from './assets/pillows.jpg'
 import broccoli from './assets/broccoli.jpg'
-//BGM is from the pixabay website. Music by Viacheslav Starostin from Pixabay
+//BGM is from the pixabay website. Music by Viacheslav Starostin from Pixabay.
 import funny_music from './assets/funny_music.mp3'
+ 
 
 function App() {
+  //Each question as its respective meme. 
   const questions_and_memes = [
     {question: "WoUlD You fIGHt 1 DuCk-SIZed lAwyEr or 100 LaWyer-SizED dUCKs?????!!!!", meme: duck},
     {question: "wILL FIgHTiNg God GIVE YoU sErOtonIN?????", meme: serotonin},
@@ -31,7 +33,6 @@ function App() {
     {question: "iF YOUR tOAsTeR StArTs sEnDiNg you eMaILs, dO yOu HaVE tO pAy foR iTs iNtErNeT?", meme: toaster},
     {question: "dOeS YouR pILLoW gEt OfFeNdEd iF YOu bUY a nEW oNe?!", meme: pillows},
     {question: "iF A ZoMbIE aPoCaLyPsE hApPeNs, cAn yOu CoNvInCe tHEm To OnLy eAt BrOcCoLi?!", meme: broccoli}
- 
   ];
 
 
@@ -42,7 +43,12 @@ function App() {
 
   const bgm = new Audio(funny_music);
   bgm.loop = true;
-  //Each question will be followed by a specific meme
+
+ 
+  /*
+   If the screen shows a question and the user clicks, it will then show the question's corresponding meme. 
+   If the screen shows a meme and the user clicks, it wil show the next question.
+  */
   
   const behavior_on_click = () =>{
 
@@ -53,18 +59,15 @@ function App() {
         set_show_meme(false);
         set_question_index(current_question_index => (current_question_index + 1) % questions_and_memes.length);
       }
+       
     }
        
-
       if(show_title_page){
         set_show_title_page(false);
         
       }else if(!show_title_page && show_toggle_bgm_page){
         set_show_toggle_bgm_page(false);
       }
-
-      
-
   }
  
   const appBackgroundStyle = {
@@ -74,9 +77,6 @@ function App() {
      backgroundRepeat: 'no-repeat',
      backgroundPosition: 'center',
      backgroundColor: show_meme && 'black'
-
- 
- 
   }
 
   const play_bgm = () =>{
