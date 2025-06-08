@@ -1,7 +1,7 @@
  import React, { useState } from 'react';
 import './App.css'; 
 //All pictures are from the pexels website. I added text and drawings to turn them into memes.
-import raccoonImage from './assets/raccoon.jfif';  
+ 
 import duck from './assets/duck.jpg'; 
 import serotonin from './assets/serotonin.jpg'
 import raccoon from './assets/raccoon.jpg'
