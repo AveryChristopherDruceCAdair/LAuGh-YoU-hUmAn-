@@ -1,1 +1,1 @@
-#hello
+Hello! This is the github repository of LAuGh YoU hUmAn!!! This app consists of many different funny questions and memes designed to help people spiraling from negative thoughts regain control of their brain! With the use of absurdist humor, the app is intended to interrupt bad spiraling to give temporary relief and clarity of mind. 
