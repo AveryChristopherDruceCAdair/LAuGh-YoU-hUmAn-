@@ -1,2 +1,1 @@
-<<<<<<< HEAD
-Hello
+#hello
